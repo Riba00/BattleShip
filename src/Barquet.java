@@ -7,11 +7,10 @@ public class Barquet {
     public static void main(String[] args) {
 
         crearTablerosEnAigua();
-        mostrarTableroUsuari();
+        //mostrarTableroUsuari();
         generarBarcos();
-        mostrarTableroSolucio();
+        //mostrarTableroSolucio();
         jugar();
-
     }
 
     public static void crearTablerosEnAigua() {
@@ -189,7 +188,7 @@ public class Barquet {
                 System.out.print("Resposta: ");
                 respostaSeguirJugant = teclat.nextLine();
             } while (!respostaSeguirJugantCorrecta(respostaSeguirJugant));
-            if (respostaSeguirJugant.charAt(0) == 'S') {
+            if (respostaSeguirJugant.charAt(0) == 'S'  || respostaSeguirJugant.charAt(0) == 's') {
                 seguirJugant = true;
                 crearTablerosEnAigua();
                 generarBarcos();
