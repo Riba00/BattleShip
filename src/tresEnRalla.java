@@ -197,6 +197,10 @@ public class tresEnRalla {
                 partidaAcabada = true;
             } catch (ArrayIndexOutOfBoundsException e){
                 System.out.println("Coordenada incorrecta");
+                System.out.println();
+            } catch (NumberFormatException e){
+                System.out.println("Coordenada incorrecta");
+                System.out.println();
             }
         } while (!partidaAcabada);
     }
