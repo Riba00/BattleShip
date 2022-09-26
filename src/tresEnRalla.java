@@ -12,7 +12,6 @@ public class tresEnRalla {
         /*
         CREA UNA ARRAY MULTIDIMENSIONAL AMB TOT "-"
          */
-
         //TABLERO
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero[i].length; j++) {
@@ -53,6 +52,7 @@ public class tresEnRalla {
 
         boolean partidaAcabada;
         boolean seguirJugant;
+
         //INICI BUCLE TORNAR A JUGAR
         do {
             //INICI BUCLE PARTIDA
@@ -74,10 +74,11 @@ public class tresEnRalla {
                 try {
                     numeroFila = (coordenada.toUpperCase().charAt(0) - 65);
                     numeroColumna = (Integer.parseInt(String.valueOf(coordenada.charAt(1))) - 1);
-
+                    //BUIDA EXCEPTION
                     if (tablero[numeroFila][numeroColumna] == "-") {
                         throw new buidaException();
                     }
+                    //OCUPADA EXCEPTION
                     if (tablero[numeroFila][numeroColumna] == "X" || tablero[numeroFila][numeroColumna] == "O") {
                         throw new ocupadaException();
                     }
@@ -95,6 +96,8 @@ public class tresEnRalla {
                     System.out.println("Coordenada incorrecta");
                     System.out.println();
                 }
+
+                //DECIDIR QUI HA GUANYAT
                 switch (verificarGuanyador()) {
                     case 1:
                         System.out.println("Guanya Jugador 1");
@@ -192,10 +195,11 @@ public class tresEnRalla {
         return 0;
     }
 
-
     public static int verificarGuanyador() {
         /*
         VERIFICA SI ALGUN JUGADOR HA FET UN 3 EN RATLLA
+            1 -> GUANYA JUGADOR 1
+            2 -> GUANYA JUGADOR 2
          */
         try {
             if (verificarHoritzontal() == 1 || verificarVertical() == 1 || verificarDiagonal() == 1)
@@ -214,14 +218,11 @@ public class tresEnRalla {
         return 0;
     }
 
-
-
     public static int verificarEmpat() {
         /*
         VERIFICA SI LA PARTIDA HA ACABAT AMB EMPAT
             0 -> NO HI HA EMPAT
             1 -> EMPAT
-
          */
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
